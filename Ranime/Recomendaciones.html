@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+
+  <link rel="stylesheet" href="CSS/recomendaciones.css">
+
+  <link rel="stylesheet" href="CSS/Style.css">
+
+  <link rel="stylesheet" href="CSS/lol.css">
+
+  <script src="js/formulario.js"></script>
+
+  <script src="js/Tabla.js"></script>
+
+  <title>Ranime - Recomendaciones</title>
+  <link href="IMG/icono.png" rel="icon" type="image/x-icon"/>
+</head>
+<body class="body">
+  <nav class="navbar navbar-default navbar-fixed-top color" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Desplegar navegación</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand Ranime" href="index.html">Ranime</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="Novedades.html">Novedades</a></li>
+        <li class="active"><a href="Recomendaciones.html">Recomendaciones</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle x" data-toggle="dropdown">Menú<b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu color">
+            <li><a href="informacion.html">Información</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left derecha" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Buscar">
+        </div>
+        <input type="button" value="enviar" class="btn btn-default"/>
+      </form>
+    </div>
+  </nav>
+  <!-- Modal -->
+  <div class="container j">
+    <h3 class="titulo center">Recomendaciones</h3>
+    <ul class="nav nav-tabs">
+      <li class="active z"><a data-toggle="tab" href="#Anime">Anime</a></li>
+      <li class="z"><a data-toggle="tab" href="#Manga">Manga</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div class="tab-pane fade in active" id="Anime">
+      <div class="container j">
+        <h3 class="titulo center" id="titulo3">Anime</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="titulo f">Opciones</th>
+              <th class="titulo f">Titulo</th>
+              <th class="titulo f">Autor</th>
+              <th class="titulo f">Año de Estreno</th>
+              <th class="titulo f">Género</th>
+              <th class="titulo f">Recomendado</th>
+              <th class="titulo f">Email</th>
+            </tr>
+          </thead>
+          <tbody id="mensajes">
+
+          </tbody>
+        </table>
+      </div>
+      <div class="container j">
+        <div class="col-sm-7">
+          <form class="formulario" id="formulari" method="post">
+            <div class="form-group">
+              <label for="name">Titulo:</label><br/>
+              <label>
+                <select class="form-control" name="name" id="name">
+                </select>
+            </label>
+              <span id="error-titulo">* No has seleccionado ninguna opcion</span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" value="" id="email" class="form-control">
+              <span id="error-email">* No has escrito ningun email</span>
+            </div>
+            <div class="form-group">
+              <label for="menssajes">Autor:</label>
+              <input type="text" name="menssajes" value="" id="menssajes" class="form-control">
+              <span id="error-autor">* No has puesto nombre al autor</span>
+            </div>
+            <div class="form-group">
+              <label for="edad">Año de Estreno:</label>
+                <input type="number" class="form-control" id="edad">
+                <span id="error-edad">* No has introducido fecha</span>
+                <span id="error-edad2">* La Fecha debe ser entre 1864 y 2018</span>
+            </div>
+            <div class="form-group">
+              <label for="blanci">Genero:</label>
+              <label>
+                <select class="form-control" id="blanci">
+                  <option id="options">bl</option>
+                  <option>Acción</option>
+                  <option>Ciencia Ficción</option>
+                  <option>Fantasía</option>
+                  <option>Terror</option>
+                  <option>Romance</option>
+                  <option>Comedia</option>
+                  <option>Magia</option>
+                  <option>Aventuras</option>
+                  <option>Psicológico</option>
+                  <option>Comedia</option>
+                  <option>Drama</option>
+                  <option>Histórico</option>
+                </select>
+                <span id="error-select">* No elegiste ninguna opcion</span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label>Recomendado:</label>
+              <label>
+                <input id="varon" type="radio" name="radiocito" value="Recomendado">Sí
+              </label>
+              <label>
+                <input id="mujer" type="radio" name="radiocito" value="No Recomendado">No
+              </label>
+              <span id="error-sexo">* No has seleccionado ninguna opcion</span>
+            </div>
+            <br><br><br>
+            <button type="submit" name="button" class="btn btn-default botoncito">Enviar</button>
+          </form>
+        </div>
+      </div>
+      <div class="container j">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="titulo f">Opciones</th>
+              <th class="titulo f">Titulo</th>
+              <th class="titulo f">Puntuación</th>
+            </tr>
+          </thead>
+          <tbody id="mensajesito">
+
+          </tbody>
+        </table>
+        <form class="formulario" id="formulari3" method="post">
+          <div class="form-group">
+            <label for="name2">Titulo:</label>
+            <input type="text" name="name2" value="" id="name3" class="form-control">
+            <span id="error-titulo3">* No has escrito ningun titulo</span>
+          </div>
+          <div class="form-group">
+            <label for="edad3">Puntuación:</label>
+              <input type="number" class="form-control" id="edad3">
+              <span id="error-edad33">* No has introducido Puntuación</span>
+              <span id="error-edad333">* La Fecha debe ser entre 1 y 10</span>
+          </div>
+          <button type="submit" name="button3" class="btn btn-default botoncito">Enviar</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="Manga">
+      <div class="container j">
+        <h3 class="titulo center" id="titulo32">Manga</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="titulo f">Opciones</th>
+              <th class="titulo f">Titulo</th>
+              <th class="titulo f">Autor</th>
+              <th class="titulo f">Año de Estreno</th>
+              <th class="titulo f">Género</th>
+              <th class="titulo f">Recomendado</th>
+              <th class="titulo f">Email</th>
+              <th class="titulo f">Imagen</th>
+            </tr>
+          </thead>
+          <tbody id="mensajes2">
+
+          </tbody>
+        </table>
+      </div>
+      <div class="container j">
+        <form class="formulario" id="formulari2" method="post">
+          <div class="form-group">
+            <label for="name2">Titulo:</label>
+            <input type="text" name="name2" value="" id="name2" class="form-control">
+            <span id="error-titulo2">* No has seleccionado ninguna opcion</span>
+          </div>
+          <div class="form-group">
+            <label for="email2">Email</label>
+            <input type="email" name="email2" value="" id="email2" class="form-control">
+            <span id="error-email2">* No has escrito ningun email</span>
+          </div>
+          <div class="form-group">
+            <label for="menssajes2">Autor:</label>
+            <input type="text" name="menssajes" value="" id="menssajes2" class="form-control">
+            <span id="error-autor2">* No has seleccionado ninguna opcion</span>
+          </div>
+          <div class="form-group">
+            <label for="edad2">Año de Estreno:</label>
+              <input type="number" class="form-control" id="edad2">
+              <span id="error-edad222">* No has introducido fecha</span>
+              <span id="error-edad22">* La Fecha debe ser entre 1864 y 2018</span>
+          </div>
+          <div class="form-group">
+            <label for="blanci2">Genero:</label>
+            <label>
+              <select class="form-control" id="blanci2">
+                <option id="options2">bl</option>
+                <option>Acción</option>
+                <option>Ciencia Ficción</option>
+                <option>Fantasía</option>
+                <option>Terror</option>
+                <option>Romance</option>
+                <option>Comedia</option>
+                <option>Magia</option>
+                <option>Aventuras</option>
+                <option>Psicológico</option>
+                <option>Comedia</option>
+                <option>Drama</option>
+                <option>Histórico</option>
+              </select>
+              <span id="error-select2">* No elegiste ninguna opcion</span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Recomendado:</label>
+            <label>
+              <input id="varon2" type="radio" name="radiocito2" value="Recomendado">Sí
+            </label>
+            <label>
+              <input id="mujer2" type="radio" name="radiocito2" value="No Recomendado">No
+            </label>
+            <span id="error-sexo2">* No has seleccionado ninguna opcion</span>
+          </div>
+          <div class="form-group">
+            <label class="btn btn-file">
+                <input type="file" name="file2" id="imagen2" class="hidden" accept="image/*">
+                <img src="img/upload.webp" alt="subir" class="img-responsive" id="upload2">
+                <span id="error-image2">* Selecciona una imagen</span>
+              </label>
+          </div>
+          <div class="hidden" id="progreso2">
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" id="barra-de-progreso2">
+                  <span class="sr-only">70% Completo</span>
+                </div>
+              </div>
+            </div>
+          <br><br><br>
+          <button type="submit" name="button2" class="btn btn-default botoncito">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

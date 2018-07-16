@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+
+  <link rel="stylesheet" href="CSS/Style.css">
+  <script src="js/formulario.js"></script>
+  <title>Ranime</title>
+  <link href="IMG/icono.png" rel="icon" type="image/x-icon"/>
+</head>
+<body class="body">
+  <nav class="navbar navbar-default navbar-fixed-top color" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Desplegar navegación</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand Ranime" href="index.html">Ranime</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Inicio</a></li>
+        <li><a href="Novedades.html">Novedades</a></li>
+        <li><a href="Recomendaciones.html">Recomendaciones</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle x" data-toggle="dropdown">Menú<b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu color">
+            <li><a href="informacion.html">Información</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left derecha" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Buscar">
+        </div>
+        <input type="button" value="enviar" class="btn btn-default"/>
+      </form>
+      <div class="col-sm-2 nav navbar-nav navbar-right span" id="logout">
+              <input type="image" src="IMG/salir.png" alt="logout" width="50" height="50">
+      </div>
+      <ul id="sesion" class="nav navbar-nav navbar-right span">
+        <li><a data-toggle="modal" data-target="#Registrarse"><span class="glyphicon glyphicon-user span"></span>Registrarse</a></li>
+        <li><a data-toggle="modal" data-target="#Inicio"><span class="glyphicon glyphicon-log-in span"></span>Iniciar sesion</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div id="Inicio" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3><span class="Ranime">Ranime</span></h3>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-5" id="btn-admin">
+              <h4 class="bordito4 centrar">Administrador</h4>
+              <input class="botones" type="image" src="IMG/admin.png" alt="Admin" width="200" height="200">
+            </div>
+            <div class="col-sm-5" id="btn-user">
+              <h4 class="bordito4 centrar">Usuario</h4>
+              <input class="botones" type="image" src="IMG/User.png" alt="User" width="200" height="200">
+            </div>
+          </div>
+
+          <form class="form-login" id="form-login">
+            <div class="form-group">
+              <input type="email" class="form-control" id="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="pwd" placeholder="Contraseña">
+            </div>
+            <div class="centrar">
+              <button type="submit" id="login"><img src="IMG/login.png" alt="Login" width="50" height="50"></button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="logi" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div id="Registrarse" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3><span class="Ranime">Ranime</span></h3>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal superior" role="form" action="index.html" method="get" id="formulario">
+            <div class="form-group">
+              <div class="col-sm-7">
+                <label for="nombre" class="col-lg-2 control-label">Nombre</label>
+                <div class="col-lg-8 margen">
+                  <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                  <span id="error-nombre">* No has introducido el nombre</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-7">
+                <label for="edad" class="col-lg-2 control-label">Edad</label>
+                <div class="col-lg-8 margen">
+                  <input type="number" class="form-control" id="edad" placeholder="Edad">
+                  <span id="error-edad2">* Tu edad debe ser entre 13 y 60 años</span>
+                  <span id="error-edad">* No has introducido la edad</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-7">
+                <label for="Email" class="col-lg-2 control-label">Email</label>
+                <div class="col-lg-8 margen">
+                  <input type="email" class="form-control" id="Email" placeholder="Email">
+                  <span id="error-email">*No has escrito el email</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-7">
+                <label for="contra" class="col-lg-2 control-label">contraseña</label>
+                <div class="col-lg-8 margen">
+                  <input type="password" class="form-control" id="contra" name="contraseña" placeholder="contraseña">
+                  <span id="error-2">*No has escrito la contraseña</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-7">
+                <label for="repetir" class="col-lg-2 control-label">Repetir</label>
+                <div class="col-lg-8 margen">
+                  <input type="password" class="form-control" id="repetir" name="repetir contraseña" placeholder="Repetir Contraseña">
+                  <span id="error-contra">*Las contraseñas no coinciden</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-10">
+                <label class="col-lg-2 control-label">Lugar nacimiento</label>
+                <div class="col-lg-8 margen">
+                  <label>
+                    <select class="form-control" id="blanci">
+                      <option id="options">bl</option>
+                      <option>España</option>
+                      <option>Japón</option>
+                      <option>Francia</option>
+                      <option>Alemania</option>
+                    </select>
+                    <span id="error-select">* No elegiste ninguna opcion</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <div class="checkbox">
+                  <label>
+                    <input id="cajita" type="checkbox"> No cerrar sesión
+                    <span id="error-caja">*Debe ser seleccionado</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-lg-offset-2 col-lg-10">
+                <div class="radio">
+                  <label>
+                    <input id="varon" type="radio" name="radio"> Recibir Información
+                  </label>
+                  <label>
+                    <input id="mujer" type="radio" name="radio">No Recibir Información
+                  </label>
+                  <span id="error-sexo">* No has seleccionado ninguna opcion</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button type="submit" class="btn btn-default">Entrar</button>
+                <button type="reset" class="btn btn-primary">Reset</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="jumbotron z">
+      <div class="center">
+        <img src="IMG/titulo.png" alt="titulo">
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="thumbnail">
+          <img class="imagen" src="IMG/soma.jpg" data-toggle="modal" data-target="#soma1" alt="soma">
+          <div id="soma1" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Shokugeki No Souma</h4>
+                </div>
+                <div class="modal-body">
+                  <div id="myCar" class="carousel slide" data-ride="car">
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCar" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCar" data-slide-to="1"></li>
+                      <li data-target="#myCar" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="IMG/soma.jpg" alt="clover" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="IMG/san.jpg" alt="corazon" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="IMG/sara.jpg" alt="equipo" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#myCar" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCar" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="caption">
+            <h3 class="titulo">Shokugeki No Souma</h3>
+            <div id="soma" class="collapse">
+              <p>El sueño de Yukihira Souma es convertirse en un chef de tiempo completo en el restorán de su padre y sobrepasar su habilidad culinaria. Cuando Yukihira se gradúa de secundaria, su padre, Yukihira Jouichirou, cierra su restorán para ir a cocinar a europa. Aunque derrotado, el espíritu luchador de Souma es reavivado por un desafío de Jouchirou, el cual es sobrevivir en una escuela de élite culinario donde solo el 10% de los estudiantes logra graduarse. ¿Podrá Souma lograrlo?</p>
+            </div>
+            <button data-toggle="collapse" data-target="#soma" class="btn btn-primary" role="button">Leer más..</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="thumbnail">
+          <img class="imagen" src="IMG/onepiece.jpg" data-toggle="modal" data-target="#piece1" alt="re">
+          <div id="piece1" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">One Piece</h4>
+                </div>
+                <div class="modal-body">
+                  <div id="myCaro" class="carousel slide" data-ride="caro">
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCaro" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCaro" data-slide-to="1"></li>
+                      <li data-target="#myCaro" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="IMG/onepiece.jpg" alt="clover" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="IMG/salto.jpg" alt="corazon" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="IMG/luffy.jpg" alt="equipo" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#myCaro" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCaro" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="caption">
+            <h3 class="titulo">One Piece</h3>
+            <div id="piece" class="collapse">
+              <p>Una historia épica de piratas, donde narra la historia de "Monkey D. Luffy" quien cuado tenia 7 años, comió accidentalmente una "Akuma no mi"(Futa del diablo) la cual le dio poderes de goma. Por otra parte "Gol D. Roger" conocido como "El rey de los Piratas" quien fuera ejecutado por la Marine, habló antes de morir, acerca de su famoso tesoro "One Piece" escondido en la "Gran line". Esta noticia desato la gran era de la piratas lanzando a incontables piratas a ese lugar, en busca de "One Piece" el tesoro perdido. Diez años después, Luffy inspirado en "Gol D. Roger" y un pirata de nombre Akagami no Shanks (Shanks el pelirrojo) se convierte en pirata deseando ser el próximo "Rey de los Piratas" y zarpar para conocer amigos y tener aventuras con ellos, teniendo como meta encontrar el "One Piece".</p>
+            </div>
+            <button data-toggle="collapse" data-target="#piece" class="btn btn-primary" role="button">Leer más..</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="thumbnail">
+          <img class="imagen" src="IMG/shingeki.jpg" data-toggle="modal" data-target="#eren" alt="e">
+          <div id="eren" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Shingeki No Kyogin</h4>
+                </div>
+                <div class="modal-body">
+                  <div id="myCarou" class="carousel slide" data-ride="carou">
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarou" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarou" data-slide-to="1"></li>
+                      <li data-target="#myCarou" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="IMG/shingeki.jpg" alt="clover" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="IMG/exploracion.jpg" alt="corazon" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="IMG/eren.jpg" alt="equipo" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#myCarou" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarou" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="caption">
+            <h3 class="titulo">Shingeki No Kyojin</h3>
+            <div id="shingeki" class="collapse">
+              <p>La historia nos traslada a un mundo en el que la humanidad estuvo a punto de ser exterminada cientos de años atrás por los gigantes. Los gigantes son enormes, parecen no ser inteligentes y devoran seres humanos. Lo peor es que parece que lo hacen por placer y no por alimentarse. Una pequeña parte de la humanidad ha conseguido sobrevivir protegiéndose en una ciudad con unos altísimos muros, más altos que el mayor de los gigantes. La ciudad vive su vida tranquila, y hace más de 100 años que ningún gigante aparece por allí. Eren y su hermana adoptiva Mikasa son todavía unos adolescentes cuando ven algo horroroso: un gigante mucho mayor que todos los que la humanidad había conocido hasta el momento está destruyendo los muros de la ciudad. No pasa mucho tiempo hasta que los gigantes entran por el hueco abierto en el muro y comienzan a devorar a la gente.</p>
+            </div>
+            <button data-toggle="collapse" data-target="#shingeki" class="btn btn-primary" role="button">Leer más..</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="thumbnail">
+          <img class="imagen" src="IMG/Asta.jpg" data-toggle="modal" data-target="#asta" alt="asta">
+          <div id="asta" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Black Clover</h4>
+                </div>
+                <div class="modal-body">
+                  <div id="myCarouse" class="carousel slide" data-ride="carouse">
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarouse" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarouse" data-slide-to="1"></li>
+                      <li data-target="#myCarouse" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="IMG/Asta.jpg" alt="clover" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="IMG/hermanos.png" alt="corazon" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="IMG/duelo.jpg" alt="equipo" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#myCarouse" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarouse" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="caption">
+            <h3 class="titulo">Black Clover</h3>
+            <div id="clover" class="collapse">
+              <p>La historia de Black Clover nos pone en la piel de un joven llamado Asta, el cual quiere convertirse en el mago más grande del reino. Sin embargo, hay un inconveniente: ¡no puede usar magia! Por suerte, Asta recibe el grimorio trébol de cinco hojas, que le otorga el poder de la anti-magia. ¿Puede alguien carente de magia convertirse en el Rey Hechicero? Una cosa está clara, Asta nunca se rendirá.</p>
+            </div>
+            <button data-toggle="collapse" data-target="#clover" class="btn btn-primary" role="button">Leer más..</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="thumbnail">
+          <img class="imagen" src="IMG/Naruto.jpg" data-toggle="modal" data-target="#naruto1" alt="na">
+          <div id="naruto1" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Naruto</h4>
+                </div>
+                <div class="modal-body">
+                  <div id="myCarous" class="carousel slide" data-ride="carous">
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarous" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarous" data-slide-to="1"></li>
+                      <li data-target="#myCarous" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="IMG/Naruto.jpg" alt="clover" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="IMG/Naruto10.jpg" alt="corazon" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="IMG/naruto11.jpg" alt="equipo" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#myCarous" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarous" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="caption">
+            <h3 class="titulo">Naruto</h3>
+            <div id="naruto" class="collapse">
+              <p>Naruto, un aprendiz de ninja de la Aldea Oculta de Konoha es un chico travieso que desea llegar a ser el Hokage de la aldea para demostrar a todos lo que vale. Lo que descubre al inicio de la historia es que la gente le mira con desconfianza porque en su interior está encerrado el demonio Kyubi que una vez destruyó la aldea, y que el anterior líder de la misma tuvo que encerrar en su cuerpo siendo aún muy pequeño, a coste de su vida. Aunque sus compañeros no saben esto, tampoco le aprecian porque es mal estudiante y siempre está haciendo bromas. Sin embargo, la forma de actuar y la determinación de Naruto demuestran a los demás que puede llegar muy lejos, y el recelo de los otros chicos se va disipando. Naruto y sus compañeros Sakura y Sasuke, junto a su maestro Kakashi tendrán que enfrentarse a una serie de combates y misiones a lo largo de la historia que les permitirán mejorar y crecer. Naruto se vera enfrentado a sus principales enemigos Akatsuki, Itachi y Kisame.</p>
+            </div>
+            <button data-toggle="collapse" data-target="#naruto" class="btn btn-primary" role="button">Leer más..</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="thumbnail">
+          <img class="imagen" src="IMG/conan.png" data-toggle="modal" data-target="#conan1" alt="co">
+          <div id="conan1" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Detective Conan</h4>
+                </div>
+                <div class="modal-body">
+                  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarousel" data-slide-to="1"></li>
+                      <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="IMG/conan.png" alt="clover" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="IMG/conan.jpg" alt="corazon" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="IMG/conan2.jpg" alt="equipo" class="img">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="caption">
+            <h3 class="titulo">Detective Conan</h3>
+            <div id="conan" class="collapse">
+              <p>Trata sobre un joven de escuela preparatoria llamado Shinichi Kudo, que un día mientras estaba en un parque de atracciones siguió a unos hombres vestidos de negro que estaban haciendo tratos ilegales.De pronto uno de ellos coge a Shinichi por la espalda, lo golpea con un bate y lo droga con una pastilla que en teoría lo llevaría a su muerte. Pero esa pastilla tenía unos efectos secundarios: en vez de morir, encoge. Allí es cuando Shinichi Kudo de 17 años pasa a ser Conan Edogawa, de 7 años, un niño con mente de un adulto que busca la única y sola verdad.</p>
+            </div>
+            <button data-toggle="collapse" data-target="#conan" class="btn btn-primary" role="button">Leer más..</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

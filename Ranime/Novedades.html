@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+
+  <script src="js/rss.js"></script>
+
+  <link rel="stylesheet" href="CSS/Style.css">
+  <title>Ranime - Novedades</title>
+  <link href="IMG/icono.png" rel="icon" type="image/x-icon"/>
+</head>
+<body class="body">
+  <nav class="navbar navbar-default navbar-fixed-top color" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Desplegar navegación</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand Ranime" href="index.html">Ranime</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Inicio</a></li>
+        <li class="active"><a href="Novedades.html">Novedades</a></li>
+        <li><a href="Recomendaciones.html">Recomendaciones</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle x" data-toggle="dropdown">Menú<b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu color">
+            <li><a href="informacion.html">Información</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left derecha" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Buscar">
+        </div>
+        <input type="button" value="enviar" class="btn btn-default"/>
+      </form>
+      <ul class="nav navbar-nav navbar-right span">
+        <li><a data-toggle="modal" data-target="#Registrarse"><span class="glyphicon glyphicon-user span"></span>Registrarse</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Modal -->
+  <div id="Registrarse" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3><span class="Ranime">Ranime</span></h3>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal superior" role="form" action="index.html" method="get" id="formulario">
+            <div class="form-group">
+              <div class="col-sm-7">
+                <label for="nombre" class="col-lg-2 control-label">Nombre</label>
+                <div class="col-lg-8 margen">
+                  <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                  <span id="error-nombre">* No has introducido el nombre</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-7">
+                <label for="edad" class="col-lg-2 control-label">Edad</label>
+                <div class="col-lg-8 margen">
+                  <input type="number" class="form-control" id="edad" placeholder="Edad" min="13" max="50">
+                  <span id="error-edad">* No has introducido la edad</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-7">
+                <label for="Email" class="col-lg-2 control-label">Email</label>
+                <div class="col-lg-8 margen">
+                  <input type="Email" class="form-control" id="Email" placeholder="Email">
+                  <span id="error-email">*No has escrito el email</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-7">
+                <label for="contra" class="col-lg-2 control-label">contraseña</label>
+                <div class="col-lg-8 margen">
+                  <input type="password" class="form-control" id="contra" name="contraseña" placeholder="contraseña">
+                  <span id="error-2">*No has escrito la contraseña</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-7">
+                <label for="repetir" class="col-lg-2 control-label">Repetir</label>
+                <div class="col-lg-8 margen">
+                  <input type="password" class="form-control" id="repetir" name="repetir contraseña" placeholder="Repetir Contraseña">
+                  <span id="error-contra">*Las contraseñas no coinciden</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-10">
+                <label class="col-lg-2 control-label">Lugar nacimiento</label>
+                <div class="col-lg-8 margen">
+                  <label>
+                    <select class="form-control" id="blanci">
+                      <option id="options">bl</option>
+                      <option>España</option>
+                      <option>Japón</option>
+                      <option>Francia</option>
+                      <option>Alemania</option>
+                    </select>
+                    <span id="error-select">* No elegiste ninguna opcion</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> No cerrar sesión
+                  </label>
+                </div>
+              </div>
+              <div class="col-lg-offset-2 col-lg-10">
+                <div class="radio">
+                  <label>
+                    <input id="varon" type="radio" name="radio"> Recibir Información
+                  </label>
+                  <label>
+                    <input id="mujer" type="radio" name="radio">No Recibir Información
+                  </label>
+                  <span id="error-sexo">* No has seleccionado ninguna opcion</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button type="submit" class="btn btn-default">Entrar</button>
+                <button type="reset" class="btn btn-primary">Reset</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container m">
+    <h2 class="d">¡Novedades!</h2>
+    <p class="d">Aquí tienes las ultimas novedades del mundo del anime:</p>
+    <input class="form-control" id="buscador" type="text" placeholder="Search..">
+    <br>
+    <table class="table table-bordered f">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Autor</th>
+          <th>Valoración</th>
+        </tr>
+      </thead>
+      <tbody id="tabla1">
+        <tr>
+          <td>Humanity Has Declined </td>
+          <td>Romeo Tanaka</td>
+          <td>La valoración sobre este Anime es un 7</td>
+        </tr>
+        <tr>
+          <td>Watamote</td>
+          <td>Nico Tanigawa</td>
+          <td>La valoración soblre este Anime es un 4</td>
+        </tr>
+        <tr>
+          <td>Tsuki ga Kirei</td>
+          <td>Yūko Kakihara</td>
+          <td>La valoración soblre este Anime es un 6</td>
+        </tr>
+        <tr>
+          <td>Osomatsu-san</td>
+          <td>Yoichi Fujita</td>
+          <td>La valoración soblre este Anime es un 9</td>
+        </tr>
+        <tr>
+          <td>One Room</td>
+          <td>Eiji Mano</td>
+          <td>La valoración soblre este Anime es un 6</td>
+        </tr>
+        <tr>
+          <td>Love Live!</td>
+          <td>Sakurako Kimino</td>
+          <td>La valoración soblre este Anime es un 5</td>
+        </tr>
+        <tr>
+          <td>Ojarumaru</td>
+          <td>Rin Inumaru</td>
+          <td>La valoración soblre este Anime es un 8</td>
+        </tr>
+        <tr>
+          <td>Urara Meirochō</td>
+          <td>Hitomi Mieno</td>
+          <td>La valoración soblre este Anime es un 6</td>
+        </tr><tr>
+          <td>Psycho-Pass</td>
+          <td>Gen Urobuchi</td>
+          <td>La valoración soblre este Anime es un 9</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="d">¡Espero que los disfrutes!</p>
+  </div>
+  <script>
+  $(document).ready(function(){
+    $("#buscador").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#tabla1 tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+</script>
+
+<div class="container">
+  <div class="row raimbow">
+    <img src="IMG/rss.png" alt="rss" id="rss" height="50" width="50" class="rss">
+  </div>
+</div>
+</body>
+</html>

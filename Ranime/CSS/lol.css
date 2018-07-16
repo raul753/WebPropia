@@ -1,0 +1,53 @@
+.amargo{
+  background-color: white;
+}
+
+.borrar, .editar {
+  width: 1em;
+  height: 1em;
+}
+
+.borrar:hover, .editar:hover {
+  cursor: pointer;
+}
+
+#name{
+  width: 350px;
+}
+
+#name2{
+  width: 350px;
+}
+
+#menssajes{
+  width: 350px;
+}
+
+#menssajes2{
+  width: 350px;
+}
+
+#email{
+  width: 350px;
+}
+
+#email2{
+  width: 350px;
+}
+
+#edad{
+  width: 350px;
+}
+
+#edad2{
+  width: 350px;
+}
+
+.botoncito{
+  margin-left:  80px;
+  margin-bottom: 50px;
+}
+
+.editar{
+  margin-left: 10px;
+}

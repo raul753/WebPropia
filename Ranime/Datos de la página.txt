@@ -1,0 +1,32 @@
+Buenas Tiburcio, este es mi proyecto terminado.
+
+
+Para entrar en modo usuario:
+
+	email: tiburcio@tiburcio.com
+	contrase�a: tiburcio
+
+Para entrar en modo administrador:
+
+	email: Raul@raul.com
+	comtrase�a: raul753
+
+
+
+*no puedes aceder a la pagina recomendaciones si no eres administrador.
+
+
+
+
+En la pagina recomendaciones el formulario de abajo esta para actualizar los titulos disponibles en el primer formulario,
+seg�n lo que ponemos en el primer formulario, el RSS se actualiza o se borra con los datos al respecto.
+
+
+En la pesta�a Manga esta un CRUD en el cual se le puede introducir una imagen.
+
+
+Mi pagina actualmente esta enviada con todos los datos requeridos en la entrega, asi que por favor no les quites ojo de encima a todos los datos relevantes en ello.
+
+
+Un saludo.
+Att: Raul.

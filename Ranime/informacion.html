@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="CSS/Style.css">
+  <title>Ranime - Informacion</title>
+  <link href="IMG/icono.png" rel="icon" type="image/x-icon"/>
+</head>
+<body class="body" data-spy="scroll" data-target=".navbar2" data-offset="50">
+  <nav class="navbar navbar-default navbar-fixed-top color" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Desplegar navegación</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand Ranime" href="index.html">Ranime</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Inicio</a></li>
+        <li><a href="Novedades.html">Novedades</a></li>
+        <li><a href="Recomendaciones.html">Recomendaciones</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle x" data-toggle="dropdown">Menú<b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu color">
+            <li class="active"><a href="informacion.html">Información</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left derecha" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Buscar">
+        </div>
+        <input type="button" value="enviar" class="btn btn-default"/>
+      </form>
+      <ul class="nav navbar-nav navbar-right span">
+        <li><a data-toggle="modal" data-target="#Registrarse"><span class="glyphicon glyphicon-user span"></span>Registrarse</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Modal -->
+  <div id="Registrarse" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3><span class="Ranime">Ranime</span></h3>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal superior" role="form" action="index.html" method="get" id="formulario">
+            <div class="form-group">
+              <div class="col-sm-7">
+                <label for="nombre" class="col-lg-2 control-label">Nombre</label>
+                <div class="col-lg-8 margen">
+                  <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                  <span id="error-nombre">* No has introducido el nombre</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-7">
+                <label for="edad" class="col-lg-2 control-label">Edad</label>
+                <div class="col-lg-8 margen">
+                  <input type="number" class="form-control" id="edad" placeholder="Edad" min="13" max="50">
+                  <span id="error-edad">* No has introducido la edad</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-7">
+                <label for="Email" class="col-lg-2 control-label">Email</label>
+                <div class="col-lg-8 margen">
+                  <input type="Email" class="form-control" id="Email" placeholder="Email">
+                  <span id="error-email">*No has escrito el email</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-7">
+                <label for="contra" class="col-lg-2 control-label">contraseña</label>
+                <div class="col-lg-8 margen">
+                  <input type="password" class="form-control" id="contra" name="contraseña" placeholder="contraseña">
+                  <span id="error-2">*No has escrito la contraseña</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-7">
+                <label for="repetir" class="col-lg-2 control-label">Repetir</label>
+                <div class="col-lg-8 margen">
+                  <input type="password" class="form-control" id="repetir" name="repetir contraseña" placeholder="Repetir Contraseña">
+                  <span id="error-contra">*Las contraseñas no coinciden</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-10">
+                <label class="col-lg-2 control-label">Lugar nacimiento</label>
+                <div class="col-lg-8 margen">
+                  <label>
+                    <select class="form-control" id="blanci">
+                      <option id="options">bl</option>
+                      <option>España</option>
+                      <option>Japón</option>
+                      <option>Francia</option>
+                      <option>Alemania</option>
+                    </select>
+                    <span id="error-select">* No elegiste ninguna opcion</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> No cerrar sesión
+                  </label>
+                </div>
+              </div>
+              <div class="col-lg-offset-2 col-lg-10">
+                <div class="radio">
+                  <label>
+                    <input id="varon" type="radio" name="radio"> Recibir Información
+                  </label>
+                  <label>
+                    <input id="mujer" type="radio" name="radio">No Recibir Información
+                  </label>
+                  <span id="error-sexo">* No has seleccionado ninguna opcion</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button type="submit" class="btn btn-default">Entrar</button>
+                <button type="reset" class="btn btn-primary">Reset</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar2 navbar-inverse navbar-fixed-bottom">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar2">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand Ranime" href="index.html">Ranime</a>
+      </div>
+      <div>
+        <div class="collapse navbar-collapse" id="myNavbar2">
+          <ul class="nav navbar-nav">
+            <li><a href="#info" class="active">Información Web</a></li>
+            <li><a href="#anime">Historia del Anime</a></li>
+            <li><a href="#manga">Historia del Manga</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div id="info" class="container-fluid a">
+    <h1>Información Web</h1>
+    <br><br>
+    <p>Creador: Raúl Trujillo Motas</p>
+    <br><br>
+    <p>Esta pagina web ha sido creada por y para los amantes del anime/manga. Diseñada completamente por el creador al gusto del usuario.</p>
+    <br><br>
+    <p>Información de contacto: raulmotas@hotmail.com</p>
+  </div>
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <div id="anime" class="container-fluid b">
+    <h1 class="t">Historia del Anime</h1>
+    <p>La animación japonesa comercial data desde 1917 con una serie de cortometrajes similares a las producciones americanas, y desde entonces la producción de obras de ánime en Japón ha seguido aumentando de manera constante.</p>
+    <p>El estilo de arte propio y característico del ánime surgió en 1960 con las obras de Osamu Tezuka y se extendió a nivel internacional a finales del siglo XX, junto con el desarrollo de una audiencia nacional e internacional.</p>
+    <p>El ánime en Japón ahora se distribuye en cines, en emisiones televisivas directamente a los hogares, por canales de cable, DVD, Blu-ray y masivamente a través de Internet para el resto del mundo; clasificándose en numerosos géneros dirigidos a diversas audiencias generales y especializados.</p>
+  </div>
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <div id="manga" class="container-fluid c">
+    <div class="container">
+    </div>
+    <h1 class="t">Historia del Manga</h1>
+    <p>El manga comienza su vida entre los años 1868-1912 debido a la llegada de personas de Occidente a Japón, y este estilo de dibujo fue tomando pronto mayor popularidad entre los japoneses.6​ El manga nace de la combinación de dos tradiciones: La del arte gráfico japonés, producto de una larga evolución a partir del siglo XI, y la de la historieta occidental, afianzada en el siglo XIX. Sólo cristalizaría con los rasgos que hoy conocemos tras la Segunda Guerra Mundial y la labor pionera de Osamu Tezuka.</p>
+    <h3 class="t">La tradición gráfica japonesa</h3>
+    <p>Las primeras características del manga pueden encontrarse en el Chōjugiga (dibujos satíricos de animales), atribuidos a Toba no Sōjō (siglos XI-XII), del que apenas se conservan actualmente unos escasos ejemplares en blanco y negro.</p>
+    <p>Durante el período Edo, el ukiyo-e se desarrolló con vigor y produjo las primeras narraciones remotamente comparables a los géneros actuales del manga, que van de la historia y el erotismo a la comedia y la crítica. Hokusai, una de sus figuras, implantaría el uso del vocablo manga en uno de sus libros, Hokusai Manga, recopilado a lo largo del siglo XIX. Otros dibujantes, como Gyonai Kawanabe, se destacaron también en este período artístico.</p>
+    <h3 class="t">La prensa satírica de origen occidental (1862-)</h3>
+    <p>Durante el siglo XIX, en plena transición de la era feudal a la industrializada, los artistas occidentales se maravillaban del ukiyo-e por la exótica belleza que transmitía. Con todo, los verdaderos inicios del manga moderno no se debieron al esteticismo del arte del período Edo, sino a la expansión de la influencia cultural europea en Japón.</p>
+    <p>Fueron Charles Wirgman y George Bigot (ambos, críticos de la sociedad japonesa de su tiempo) quienes sentaron las bases para el desarrollo ulterior del manga. La revista británica Punch (1841) fue el modelo para la revista The Japan Punch (1862-87) de Wirgman, como lo había sido antes para otras revistas similares en otros países. También en 1877 se publicó el primer libro infantil extranjero: Max y Moritz del alemán Wilhelm Busch.</p>
+    <p>La expansión de las técnicas historietísticas europeas se tradujo en una producción lenta pero segura por parte de artistas autóctonos japoneses, como Kiyochika Kayashi, Takeo Nagamatsu, Ippei Okomoto, Ichiro Suzuki y sobre todo Rakuten Kitazawa, cuya historieta Tagosaku to Mokube no Tokyo Kenbutsu 『田吾作と杢兵衛の東京見物』 se considera el primer manga en su sentido moderno. Todos ellos oficiaron de pioneros, difundiendo su obra a través de publicaciones, como Tokyo Puck (1905), aunque, igual que en Europa, el uso de globos de diálogo que ya era habitual en la prensa estadounidense desde The Yellow Kid (1894) todavía no se había generalizado. Desde 1915 se empezó a ensayar simultáneamente la adaptación del manga a la animación, lo que más tarde devendría en el surgimiento anime.</p>
+    <h3 class="t">Los primeros mangas infantiles (1923)</h3>
+    <p>Los años 1920 y 1930 fueron muy halagüeños, con la aparición y triunfo del kodomo manga (historietas infantiles), como Las aventuras de Shochan (1923) de Shousei Oda/Tofujin y Los Tres Mosqueteros con botas en la cabeza (1930) de Taisei Makino/Suimei Imoto. Curiosamente, la primera historieta de estilo manga aparecida en España fue un cómic infantil de esta época, publicado en el número 35 bis de Bobín9​ en 1931, un mes antes de que se proclamase la Segunda República Española.10​</p>
+    <p>El cómic estadounidense -en especial Bringing up father (1913) de George McManus - se imita mucho en los años 20,7​ lo que ayuda a implantar el globo de diálogo en series como Speed Taro (1930-33) de Sako Shishido, Ogon Bat (1930, un primer superhéroe) de Ichiro Suzaki/Takeo Nagamatsu y Las aventuras de Dankichi (1934), de Keizo Shimada, así como la tira cómica Fuku-Chan (1936-), de Ryuichi Yokohama.11​ Para entonces, habían surgido historietas bélicas como Norakuro (1931-41) de Suihou Tagawa, ya que el manga sufría la influencia de las políticas militaristas que preludiaban la Segunda Guerra Mundial, durante la cual fue usado con fines propagandísticos. En 1945, las autoridades de ocupación estadounidenses prohibieron de manera generalizada este género.</p>
+    <h3 class="t">Nacimiento del manga moderno (1945)</h3>
+    <p>Tras su rendición incondicional, Japón entraría en una nueva era. El entretenimiento emergió como industria respondiendo a la necesidad psicológica de evasión ante una cruda posguerra. La falta de recursos de la población en general requería de medios baratos de entretenimiento, y la industria tokiota de mangas basados en revistas vio surgir competidores. Apareció así el Kamishibai, una especie de leyendas de ciego, que recorría los pueblos ofreciendo su espectáculo a cambio de la compra de caramelos. El Kamishibai no competía con las revistas, pero sí otros dos nuevos sistemas de distribución centrados en Osaka:</p>
+    <p>Las bibliotecas de pago, que llegaron a constituir una red de 30.000 centros de préstamo que producía sus propios mangas en forma de revistas o tomos de 150 páginas.Los libros rojos, tomos de unas doscientas páginas de papel de baja calidad en blanco y negro, cuyo rasgo característico eran sus portadas en color rojo y su bajo precio. Esta industria pagaba a sus artistas sueldos próximos a la miseria, pero a cambio les otorgaba una amplia libertad creativa.</p>
+    <p>Osamu Tezuka, un estudiante de medicina veinteañero apasionado de los dibujos animados de Fleischer y Disney, cambiaría la faz de la historieta nipona con su primer libro rojo: La nueva isla del tesoro, que vendió de súbito entre 400.000 y 800.000 ejemplares, gracias a la aplicación a la historia de un estilo cinematográfico que descomponía los movimientos en varias viñetas y combinaba este dinamismo con abundantes efectos sonoros.</p>
+    <p>El éxito de Tezuka lo llevó a las revistas de Tokio, particularmente a la nueva Manga Shōnen (1947) que fue la primera revista infantil dedicada en exclusiva al manga, y en la que Tezuka publicó Astroboy. En estas revistas impuso su esquema de epopeya en forma de serie de relatos y diversificó su producción en múltiples géneros, de los que destacan sus adaptaciones literarias y el manga para chicas o shōjo manga. A mediados de la década de 1950 Tezuka se trasladó a un edificio de la capital llamado Tokiwasi, al que peregrinarían los nuevos autores. Hay espacio, sin embargo, para autores como Machiko Hasegawa, creadora de la tira cómica Sazae-san (1946-74), Kon Shimizu o Shigeru Sugiura con un grafismo muy diferente, nada disneyano.</p>
+    <p>Un año después, Shōnen desapareció y los libros rojos agonizaron. Entre ambos, y por obra de Osamu Tezuka, habían puesto los pilares de la industria del manga y anime contemporáneos.</p>
+    <h3 class="t">El lenguaje del manga (1959-)</h3>
+    <p>El triunfo de las revistas de manga acabó con el Kamishibai, y muchos de sus autores se refugiaron en el sistema de bibliotecas. Las revistas de manga eran todas infantiles, y las bibliotecas encontraron su nicho creando un manga orientado hacia un público más adulto: el gekiga. Abandonaron el estilo de Disney por otro más realista y fotográfico y se abrieron a nuevos géneros más violentos, escatológicos o sensuales como el horror, las historias de samuráis, los mangas sobre yakuzas, el erotismo, etc. Entre ellos cabe destacar a Sanpei Shirato que en 1964 patrocinaría la única revista underground de la historia del manga, Garo. La competencia en el terreno gráfico del gekiga obligó a las revistas a reducir la presencia del texto, aumentando el número de páginas y el tamaño para mejorar su visión.</p>
+    <p>Con el comienzo del auge económico, el pueblo nipón exigía más manga. En respuesta, una de las principales editoras de libros, Kōdansha, se introdujo en 1959 en el mercado de revistas. Su título Shōnen Magazine cambió la pauta de periodicidad mensual a semanal, multiplicando la producción e imponiendo a los autores el estajanovismo, aunque esta vez con sueldos millonarios. Pronto, otros grupos editores como Shueisha, Shōgakukan o Futabasha se le unirían. Este sistema de producción sacrificaba el color, la calidad del papel y la sofisticación temática, llevándose también de paso la crítica política, pero aumentaría vertiginosamente las ventas hasta cifras astronómicas y con ellas los beneficios empresariales, convirtiendo al manga en el medio de comunicación más importante del país.</p>
+    <p>Otros importantes autores de estos años son Fujio Akatsuka, Tetsuya Chiba, Fujiko F. Fujio, Riyoko Ikeda, Kazuo Koike, Leiji Matsumoto, Shigeru Mizuki, Gō Nagai, Keiji Nakazawa, Monkey Punch y Takao Saito.</p>
+    <h3 class="t">La expansión internacional (década de 1990)</h3>
+    <p>En 1988, gracias al éxito de la versión cinematográfica de Akira, basada en el manga homónimo del dibujante Katsuhiro Otomo, publicado en 1982 en la revista Young Magazine de la editorial Kōdansha, la difusión internacional del manga comenzó a aumentar de forma explosiva. El gran éxito de esta película en Occidente venía precedido de una tradición en aumento de emitir anime japonés en las cadenas de televisión europeas y estadounidenses. Ya en los años 60, Osamu Tezuka había vendido los derechos de emisión de su primer Astro Boy a la cadena estadounidense NBC consiguiendo un éxito notable entre la audiencia infantil. Posteriormente, se sucedieron las series de animación Mazinger Z, Great Mazinger o Grendizer, siendo esta última un estallido mediático en Francia, donde se la conocería como Goldorak. Todas ellas se basaban en las historietas del mangaka Gō Nagai, actual magnate de un imperio de distribución editorial. En la década de 1980, empezaron a destacarse series de otra índole, como The Super Dimension Fortress Macross, parte del compendio de series conocido en Occidente por Robotech, obra de Carl Macek, o la revisión de Osamu Tezuka de Astroboy pero en esta ocasión vuelta a filmar en color y con aires más modernos. A ésta se sumó la saga épica Gundam.</p>
+    <p>Otro de los autores más relevantes en este apogeo mediático de finales de los ochenta y principios de los noventa, fue el mangaka Akira Toriyama, creador de las famosas series Dragon Ball y Dr. Slump, ambas caracterizadas por un humor picante, irreverente y absurdo (aunque la primera de ellas se caracterizó más por un contenido de acción más que de humor). Tal fue el éxito de estas dos obras que en algunos países europeos llegaron a desbancar de las listas de ventas al cómic estadounidense y nacional durante bastantes años. Este fenómeno fue más marcado en España, donde Dragon Ball vendió tantos ejemplares que se la considera la historieta de origen extranjero más vendida de la historia. En el propio Japón, la revista Shōnen Jump —en momentos puntuales, especialmente durante algunas semanas que coincidía con episodios decisivos de la serie Dragon Ball— llegó a aumentar su tirada semanal en 6 millones de ejemplares.</p>
+    <p>Otros importantes autores de estos años son Tsukasa Hōjō, Ryōichi Ikegami, Masakazu Katsura, Masamune Shirow, Mitsuru Adachi, Yuzo Takada, Rumiko Takahashi, CLAMP, Jirō Taniguchi, Takehiko Inoue, Nobuhiro Watsuki, Tite Kubo, Eiichirō Oda, Masashi Kishimoto, Masami Kurumada, este mangaka se coronó con su grandiosa obra Saint Seiya (Los caballeros del Zodiaco) el cual tiene muchos seguidores hasta el día de hoy, Kurumada es uno de los mangakas más reconocidos por sus grandiosas obras inspiradas en la mitología de distintas culturas, Naoko Takeuchi, Wataru Yoshizumi y Chiho Saito.</p>
+    <h4 class="t">Exportaciones</h4>
+    <p>Cuando se comenzaron a traducir algunos títulos de manga, se les añadía color y se invertía el formato en un proceso conocido como «flopping» para que pudieran ser leídos a la manera occidental, es decir de izquierda a derecha, también conocido como «espejado». Sin embargo, varios creadores (como Akira Toriyama), no aprobaron que sus trabajos fueran modificados de esa forma, ya que se perdía la esencia de la imagen y el encuadre original, y exigieron que mantuvieran el formato original. Pronto, como consecuencia de la demanda de los fanáticos y la exigencia de los creadores, la mayoría de las editoriales comenzó a ofrecer el formato original de derecha a izquierda, que ha llegado a convertirse en un estándar para los lectores de manga fuera de Japón. También es frecuente que las traducciones incluyan notas de detalles acerca de la cultura del Japón que no resultan familiares a las audiencias extranjeras y que facilitan el entendimiento de las publicaciones.</p>
+    <p>La cantidad de mangas que han sido traducidos a un múltiples idiomas y vendidos en diferentes países sigue en aumento. Han surgido grandes casas editoriales fuera de Japón como la estadounidense VIZ Media centradas únicamente en la comercialización de manga. La francesa Glénat vive una segunda juventud gracias a publicación de cómic japonés. Los mercados que importan más manga son Francia (siendo este país el segundo del mundo en edición de cómics de origen japonés por detrás solamente del mismo Japón), los Estados Unidos, España y el Reino Unido.</p>
+    <p>Francia sobresale por poseer un mercado sumamente variado a lo que manga se refiere. Muchos trabajos publicados en Francia caen en géneros que usualmente no tienen mucho mercado en otros países fuera de Japón, como el drama orientado a adultos o los trabajos experimentales y alternativos. Artistas como Jirō Taniguchi que resultaba desconocido para la mayor parte de los países occidentales ha recibido mucho predicamento en Francia. La diversidad de manga en Francia se debe en gran parte a que este país tiene un mercado de historietas conocido como franco-belga muy bien establecido. En el sentido contrario, autores franceses, como Jean Giraud se han quejado de «el manga llega a Europa, pero el cómic europeo no va a Japón».</p>
+    <p>La compañía TOKYOPOP, se ha dado a conocer en los Estados Unidos acreditando el auge en ventas de manga, particularmente para un público de chicas adolescentes. Muchos críticos coinciden en que sus publicaciones agresivas hacen énfasis en la cantidad sobre la calidad siendo responsables de algunas traducciones de dudosa calidad.</p>
+    <p>Aunque el mercado de historietas en Alemania resulta pequeño en comparación con otros países de Europa, el manga ha favorecido cierto auge de las mismas. Luego de un imprevisto comienzo temprano en los años 1990, el movimiento manga tomo velocidad con la publicación de Dragon Ball en 1997. Hoy, el manga mantiene un 75 a 80% de las ventas de historietas publicadas en Alemania, con las mujeres sobrepasando como lectoras a los varones.</p>
+    <p>La compañía Chuang Yi publica manga en inglés y chino en Singapur; algunos de los títulos de Chuang Yi son importados a Australia y Nueva Zelanda.</p>
+    <p>En Corea, se puede encontrar manga en la mayoría de las librerías. Sin embargo, es común la práctica de leer manga «en línea» ya que resulta más económico que una versión impresa. Casas editoriales como Daiwon y Seoul Munhwasa publican la mayor parte del manga en Corea.</p>
+    <p>En Tailandia antes de 1992-1995 la mayoría del manga disponible salía de forma rápida, sin licencia, de baja calidad. Recientemente, las traducciones licenciadas han comenzado a aparecer, pero continúan siendo baratas comparadas con otros países. Entre las editoriales de manga en Tailandia se encuentran Vibunkij, Siam Inter Comics, Nation Edutainment y Bongkouh.</p>
+    <p>En Indonesia, se ha producido un crecimiento rápido en las industrias de este tipo, hasta convertirse en uno de los mercados más grandes de manga fuera de Japón. El manga en Indonesia es publicado por Elex Media Komputindo, Acolyte, Gramedia.</p>
+    <h4 class="t">Influencia fuera de Japón</h4>
+    <p>La influencia del manga es muy destacable en la industria de historietas original de casi todos los países del Extremo Oriente e Indonesia. Al día de hoy el manga también se ha consolidado en la sociedad occidental debido al éxito cosechado durante las décadas pasadas, dejando de ser algo exclusivo de un país para constituirse en un fenómeno comercial y cultural global, en competencia directa con la hegemonía narrativa estadounidense y europea.</p>
+    <p>El ejemplo más claro de la influencia internacional del manga se encuentra en el denominado amerimanga, es decir, el conjunto de artistas fuera del Japón que han creado historietas bajo la influencia del manga y el anime japonés pero para un público estadounidense. Y es que el manga se ha vuelto tan popular que muchas compañías fuera del Japón han lanzado sus propios títulos basados en el manga como Antarctic Press, Oni Press, Seven Seas Entertainment, TOKYOPOP e incluso Archie Comics que mantienen el mismo tipo de historia y estilo que los mangas originales. El primero de estos títulos salió al mercado en 1985 cuando Benn Dunn, fundador de Antartic Press, lanzó Magazine (cómic) y Ninja High School. Artistas como los estadounidenses Brian Wood (Demo) y Becky Cloonan así como el canadiense Bryan Lee O'Malley (Lost At Sea) están en gran parte influenciados por el estilo de manga comercial y han sido alabados por sus trabajos fuera del círculo de fanáticos de manga y anime. Mientras que Antarctic Press se refería a sus trabajos como «amerimanga», no todos estos trabajos inspirados en el manga son creados por estadounidenses. Muchos de estos artistas que trabajan en Seven Seas Entertainment en series como Last Hope o Amazing Agent Luna son de origen filipino y TOKYOPOP tiene una gran variedad de artistas coreanos y japoneses en algunos de sus títulos como Warcraft y Princesa Ai. Otros artistas estadounidenses con influencia del manga en algunas de sus obras son Frank Miller, Scott McCloud y sobre todo Paul Pop. Este último trabajó en Japón para Kōdansha en la antología de manga Afternoon y luego de ser despedido (debido a un cambio editorial en Kodansha) continuó con las ideas que había desarrollado para la antología, publicando en los Estados Unidos bajo el nombre de Heavy Liquid. Su trabajo contiene, por tanto, una gran influencia del manga sin las influencias internacionales de la cultura otaku. En el otro sentido, la editorial estadounidense Marvel Comics llegó a contratar al mangaka japonés Kia Asamiya para una de sus series bandera, Uncanny X-Men.</p>
+    <p>En Francia existe el movimiento llamado «La nouvelle manga» iniciado por Frédéric Boilet, que trata de combinar la sofisticación madura del manga con el estilo artístico de las historietas franco-belgas. Mientras que el movimiento envuelve a artistas japoneses, un puñado de artistas franceses han adoptado la idea de Boilet.</p>
+    <p>En Europa, de hecho, se está desarrollando actualmente a marchas forzadas los «mangakas» españoles. Tanto es así, que las editoriales extranjeras están buscando a mangakas españoles para la publicación de mangas en sus respectivos países. Ejemplos como Sebastián Riera, Desireé Martínez, Studio Kôsen, y muchos otros están consiguiendo poco a poco posicionar este nuevo manga, llamado Iberomanga, o Euromanga, cuando engloba a los autores que se están dando a conocer en Europa. Además, existen muchos artistas aficionados que son influidos exclusivamente por el estilo del manga. Muchos de estos artistas se han vuelto muy populares haciendo pequeñas publicaciones de historietas y mangas utilizando mayormente Internet para dar a conocer sus trabajos.</p>
+    <p>Sin embargo, lo más importante de todo es que gracias a la irrupción del manga en Occidente, la población juvenil de estas regiones ha vuelto a interesarse masivamente por la Historieta como medio, algo que no sucedía desde la implantación de otras formas de ocio como la TV.</p>
+    <br>
+  </div>
+</body>
+</html>

@@ -1,0 +1,259 @@
+.center{
+  text-align: center;
+}
+.color{
+  background-color: black;
+}
+
+.Ranime{
+  font: oblique bold 120% cursive;
+  font-family: fantasy;
+  font-size: large;
+}
+
+.span{
+  margin-right: 5px;
+}
+
+.body{
+  padding-top: 70px;
+  background: url(../img/fondo.jpg);
+   width: 100%;
+   padding-bottom: 70px;
+ }
+
+.rss{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.raimbow{
+  background-color: grey;
+}
+
+.imagen{
+  width:100%;
+  height:180px;
+}
+.titulo{
+  font-weight: bold;
+}
+
+.archivo{
+  margin-left:10px;
+  margin-right:10px;
+}
+
+.col{
+  background-color: white;
+}
+
+.margen{
+  margin-left: 35px;
+}
+
+.img{
+  width: 100%;
+}
+
+.superior{
+  margin-top: 10px;
+}
+
+.a{
+  padding-top:50px;
+  height: auto;
+  color: #fff;
+  background-color: blue;
+}
+
+.b{
+  padding-top:50px;
+  height: auto;
+  color: #fff;
+  background-color: #673ab7;
+}
+
+.c{
+  padding-top:50px;
+  height: auto;
+  color: #fff;
+  background-color: #009933;
+}
+
+.t{
+  font-weight: bold;
+}
+
+.m{
+  background-color: #00ffff;
+  border-radius: 5%;
+}
+
+.z{
+  background-color: White;
+  border-radius: 10%;
+}
+
+.f{
+  background-color: white;
+}
+
+.d{
+  text-align: center;
+  color: black;
+}
+
+.k{
+  width: 15%;
+}
+
+.j{
+  background-color: #00ffff;
+}
+.x{
+  color: white;
+}
+
+.conti{
+  width: 100%;
+}
+
+
+
+
+#error-contra {
+  display: none;
+  color: red;
+}
+
+#error-image2 {
+  display: none;
+  color: red;
+}
+
+#error-image {
+  display: none;
+  color: red;
+}
+
+#error-nombre {
+  display: none;
+  color: red;
+}
+
+#error-edad {
+  display: none;
+  color: red;
+}
+
+#error-caja {
+  display: none;
+  color: red;
+}
+
+#error-2 {
+  display: none;
+  color: red;
+}
+
+#error-email {
+  display: none;
+  color: red;
+}
+
+#error-email2 {
+  display: none;
+  color: red;
+}
+
+#error-contrase {
+  display: none;
+  color: red;
+}
+
+#error-ema {
+  display: none;
+  color: red;
+}
+
+#error-sexo {
+  display: none;
+  color: red;
+}
+
+#error-sexo2 {
+  display: none;
+  color: red;
+}
+
+#error-select {
+  display: none;
+  color: red;
+}
+
+#error-select3 {
+  display: none;
+  color: red;
+}
+
+#error-select2 {
+  display: none;
+  color: red;
+}
+
+#blanco {
+  display:block;
+}
+
+#error-edad2 {
+  display: none;
+  color: red;
+}
+
+#error-titulo3 {
+  display: none;
+  color: red;
+}
+
+
+#error-edad333 {
+  display: none;
+  color: red;
+}
+
+#error-edad33 {
+  display: none;
+  color: red;
+}
+
+#error-edad222 {
+  display: none;
+  color: red;
+}
+
+#error-edad22 {
+  display: none;
+  color: red;
+}
+
+#error-titulo {
+  display: none;
+  color: red;
+}
+
+#error-titulo2 {
+  display: none;
+  color: red;
+}
+
+#error-autor {
+  display: none;
+  color: red;
+}
+
+#error-autor2 {
+  display: none;
+  color: red;
+}
